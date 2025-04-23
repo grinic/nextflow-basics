@@ -1,3 +1,4 @@
 email: "nicola.gritti@embl.es"
 txts_dir: "${projectDir}/../../test_data/txts"
-tifs_dir: "${projectDir}/../../test_file/tifs"
+tifs_dir: "${projectDir}/../../test_data/tifs"
+condaEnvPath: "/opt/miniconda3/envs/nicola"

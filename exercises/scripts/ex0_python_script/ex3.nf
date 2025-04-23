@@ -8,9 +8,9 @@
 // in the command line
 
 // create a channel with one path and check the existence of that file
-tif_files = channel.fromPath("${params.tifs_dir}/*.tif", checkIfExists:true)	
+tif_files = channel.fromFilePairs("${params.tifs_dir}/*{Hoechst,FM4-64}*.tif", checkIfExists:true)	
 
-tif_files.view()
+// tif_files.view()
 
 /*
  * split a fasta file in multiple files
@@ -18,15 +18,18 @@ tif_files.view()
  
 process process_file {
 
+    // conda params.condaEnvPath
+
     input:
-    path tif_files // nextflow creates links to the original files in a temporary folder
+    val tif_files // nextflow creates links to the original files in a temporary folder
  
     output:
     path "*.txt"    // send output files to a new output channel (in this case is a collection)
+    // stdout
  
     script:
     """
-    python ${projectDir}/bin/create_file.py
+    python ${projectDir}/bin/process_list.py --file_paths "${tif_files[1]} | tr -d ' '"
     """ 
 }
 
