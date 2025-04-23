@@ -1,3 +1,3 @@
 email: "nicola.gritti@embl.es"
-txt_dir: "../../test_data/txts"
-tif_dir: "../../test_file/tifs"
+txt_dir: "${projectDir}/../../test_data/txts"
+tif_dir: "${projectDir}/../../test_file/tifs"
