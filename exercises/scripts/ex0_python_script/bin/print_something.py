@@ -1,2 +1,4 @@
+#! /usr/bin/env python3
 
-print("Ciao")
+if __name__=="__main__":
+  print("Ciao")
