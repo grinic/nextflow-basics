@@ -1,2 +1,4 @@
+#! /usr/bin/env python3
 
-open("output.txt","a").close()
+if __name__=="__main__":
+  open("output.txt","a").close()
