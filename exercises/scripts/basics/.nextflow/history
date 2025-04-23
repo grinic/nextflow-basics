@@ -1,0 +1,13 @@
+2025-04-23 09:16:42	1.4s	elegant_booth	OK	7b5c4c565bd1f0d50731faea5e3c6724	0ee48086-d145-414b-a600-d4ca0e5787bf	nextflow run ex1.nf
+2025-04-23 09:16:49	-	mighty_sinoussi	-	62bdc47029727787085163438383a495	cf820986-98ad-4b6d-a460-ef3ac084f28c	nextflow run ex1_a.nf
+2025-04-23 09:17:05	848ms	adoring_newton	OK	fc5e6653740a0f4f202cd5c1331bb445	496e4d3f-0ac5-4b72-a6f2-5299d8fd7980	nextflow run ex2.nf
+2025-04-23 09:19:11	1.2s	crazy_jennings	OK	f44bf4c5da40b096862bfdaa745370df	67bdf482-d222-481d-92c5-6a63492c1640	nextflow run ex3.nf
+2025-04-23 09:19:52	1.4s	prickly_rutherford	OK	a7597d263d1c00aaa07a18354ee69ff0	2e61d634-13fe-4203-9c5d-34a647301e4d	nextflow run ex3.nf
+2025-04-23 09:20:03	1.6s	desperate_stonebraker	OK	dc77386d9ed199e63499986de733d077	12b0d028-df2a-4d91-913e-d2d390c475aa	nextflow run ex3.nf
+2025-04-23 09:20:29	1.4s	soggy_knuth	OK	fc5e6653740a0f4f202cd5c1331bb445	0a00f14e-6916-4c36-af29-79d478be472c	nextflow run ex2.nf
+2025-04-23 09:21:02	933ms	stoic_angela	OK	e64043b0ec5d89cd8cbd515f523f677c	4677bd02-b556-4daa-b16e-169db1d0722e	nextflow run ex4.nf
+2025-04-23 09:22:13	1.2s	jolly_noyce	OK	e64043b0ec5d89cd8cbd515f523f677c	53aa5e4b-fe3c-45ed-b82c-9b506a36111f	nextflow run ex4.nf
+2025-04-23 09:22:18	-	thirsty_church	-	967639be183a874d932d72c7050912dc	c129df0f-93f4-467d-856a-47fc36b4d0aa	nextflow run ex5.nf
+2025-04-23 09:22:31	1.2s	backstabbing_austin	OK	aa045544c5c0edb9dfcae97c01ab77b6	e03fa6c4-a484-4c00-ae00-c234837aecc6	nextflow run ex5.nf
+2025-04-23 09:23:41	1.6s	drunk_mclean	OK	f9a7ac4b5e180af90c2a1d59960fd5d3	d3a71519-c424-40cb-bd89-5934eb627337	nextflow run map.nf
+2025-04-23 09:24:14	882ms	serene_swanson	OK	cb0f068e56dc58ccde2195bdc946f7e6	c24a2fe5-1492-4c4e-9db0-5c21ac738cbe	nextflow run map.nf
