@@ -5,3 +5,9 @@
 
 - https://biocorecrg.github.io/nextflow-course-2025-spring/about.html
 - https://github.com/biocorecrg/nextflow-course-2025-spring
+
+
+Add in gitignore:
+*nextflow.log*
+.nextflow/
+work/
