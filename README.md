@@ -7,7 +7,10 @@
 - https://github.com/biocorecrg/nextflow-course-2025-spring
 
 
-Add in gitignore:
+## Add in gitignore:
 *nextflow.log*
 .nextflow/
 work/
+
+## To run with params file:
+nextflow run ex0.nf -params-file parms.yaml
