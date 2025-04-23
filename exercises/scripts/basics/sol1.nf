@@ -1,5 +1,7 @@
+params.inputdir = "${projectDir}/../../test_data/txts"	
+
 Channel
-    .fromPath("{aa,bb,cc}.txt")
+    .fromPath("${params.inputdir}/{t0001,t0002,t0003}*.txt")
     .set {my_files}
 
 my_files
