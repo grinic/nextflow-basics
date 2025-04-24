@@ -32,4 +32,8 @@ In this case, we activate a conda environment to process the input images with `
 
 In this example, we use the output of one process as input of the next one.
 
-Also, we use publishdir to place the ouput of the last process in the projectdir.
+Also, we use `publishDir` to place the output of the last process in the projectDir folder.
+
+# `ex6.nf`
+
+We try saving in a subfolder the output, and arrange them in publishDir using the same subfolder structure.

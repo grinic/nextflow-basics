@@ -34,7 +34,7 @@ process extract_meta {
 }
 
 process combine_meta {
-    publishDir "${projectDir}", mode: 'copy'
+    publishDir "${projectDir}/output_ex5", mode: 'copy'
 
     conda params.condaEnvPath
 
