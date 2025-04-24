@@ -26,4 +26,4 @@ Note: Observe the difference between the output of `ex2` (a simple Channel) and 
 
 # `ex4.nf`
 
-In this case, we activate a conda environment to process the input image with scikit-image and numpy, and print out the mean of the image.
+In this case, we activate a conda environment to process the input images with `scikit-image` and `numpy`, and we print out the mean of the image as stdout.
