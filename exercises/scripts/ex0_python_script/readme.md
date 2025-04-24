@@ -1,4 +1,6 @@
-A collection of nextflow scripts using basic python scripts
+A collection of nextflow scripts using basic python scripts.
+
+**Note:** `params.yaml` contains all params that can be used in the `.nf` file with `params.NAME-OF-PARAM`. Just make sure to run the code with `nextflow run ex0.nf -params_file params.yaml`.
 
 # `ex0.nf`
 
@@ -21,3 +23,7 @@ Collects file names from folder and uses the Channel as input of the python scri
 Same as `ex2`, except this time the input is a FilePairs. The python script creates 2 txt files.
 
 Note: Observe the difference between the output of `ex2` (a simple Channel) and `ex3` (a Channel of pairs).
+
+# `ex4.nf`
+
+In this case, we activate a conda environment to process the input image with scikit-image and numpy, and print out the mean of the image.

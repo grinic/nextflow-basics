@@ -1,6 +1,6 @@
 import os
-
-
+from skimage.io import imread
+import numpy as np
 
 def list_of_str(arg):
     l = [str(f) for f in arg.split(",")]
@@ -9,20 +9,14 @@ def list_of_str(arg):
         l = [x.replace(c, "") for x in l]
     return l
 
-
-def create_file_id(file_path):
+def compute_image_mean(file_path):
     
-    for file_path in file_paths:
-        
-        print(file_path)
+    file_name = os.path.basename(file_path)
+    img = imread(file_path)
+    img_mean = np.mean(img)
+    print(f"Mean of {file_name}: {img_mean}" )
     
-        _file = os.path.basename(file_path)
-        filename, _ = os.path.splitext(_file)
-        
-        open(filename+".txt", "a").close()
-    
-    return
-    
+    return file_name, img_mean
 
 if __name__=="__main__":
     
@@ -36,4 +30,5 @@ if __name__=="__main__":
     file_paths = args.file_paths
     # print(file_paths)
 
-    create_file_id(file_paths)
+    for file_path in file_paths:
+        file_name, img_mean = compute_image_mean(file_path)
