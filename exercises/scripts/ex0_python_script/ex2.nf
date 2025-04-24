@@ -8,7 +8,7 @@
 // in the command line
 
 // create a channel with one path and check the existence of that file
-tif_files = channel.fromPath("${params.tifs_dir}/*.tif", checkIfExists:true)	
+tif_files = Channel.fromPath("${params.tifs_dir}/*.tif", checkIfExists:true)	
 
 tif_files.view()
 
