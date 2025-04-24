@@ -27,3 +27,9 @@ Note: Observe the difference between the output of `ex2` (a simple Channel) and 
 # `ex4.nf`
 
 In this case, we activate a conda environment to process the input images with `scikit-image` and `numpy`, and we print out the mean of the image as stdout.
+
+# `ex5.nf`
+
+In this example, we use the output of one process as input of the next one.
+
+Also, we use publishdir to place the ouput of the last process in the projectdir.

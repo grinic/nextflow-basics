@@ -33,7 +33,6 @@ process process_file {
     """ 
 }
 
-
 // MAIN WORKFLOW
 
 workflow {
