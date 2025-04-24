@@ -1,7 +1,0 @@
-,tp,channel,file_name,shape0,shape1,shape2,mean
-0,1,FM4-64,/g/mif/people/gritti/code/nextflow-basics/exercises/test_data/tifs/t0001_FM4-64.tif,16,198,198,672.0167840016325
-1,1,Hoechst,/g/mif/people/gritti/code/nextflow-basics/exercises/test_data/tifs/t0001_Hoechst.tif,16,198,198,265.59981921487605
-2,2,FM4-64,/g/mif/people/gritti/code/nextflow-basics/exercises/test_data/tifs/t0002_FM4-64.tif,16,198,198,644.4681154984186
-3,2,Hoechst,/g/mif/people/gritti/code/nextflow-basics/exercises/test_data/tifs/t0002_Hoechst.tif,16,198,198,232.15989599275585
-4,3,FM4-64,/g/mif/people/gritti/code/nextflow-basics/exercises/test_data/tifs/t0003_FM4-64.tif,16,198,198,442.9421216585042
-5,3,Hoechst,/g/mif/people/gritti/code/nextflow-basics/exercises/test_data/tifs/t0003_Hoechst.tif,16,198,198,208.44443647331903
