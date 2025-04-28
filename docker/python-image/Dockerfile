@@ -1,10 +1,10 @@
-### to build container: docker build -t myimage .
+### to build container: docker build -t myimage --data-root Z:/people/gritti/code/nextflow-basics/docker/python-image .
 
 # set base image (host OS)
-FROM python:3.10.14
+FROM python:3.10
 
 # set the working directory in the container
-WORKDIR Z:/people/gritti/code/nextflow-basics/exercises/docker/python-image
+WORKDIR /app
 
 # copy the dependencies file to the working directory
 COPY requirements.txt .
