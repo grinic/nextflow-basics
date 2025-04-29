@@ -2,6 +2,7 @@
  * HERE YOU HAVE THE COMMMENTS
  * NextFlow example from their website 
  * nextflow run ex0.nf -params_file params.yaml -with-docker
+ * https://github.com/nextflow-io/crg-course-nov16
  */
  
 // projectDir is a nextflow variable that contains the info about where the script is located
@@ -18,6 +19,8 @@ tif_files.view()
  */
  
 process process_file {
+
+    // conda params.condaEnvPath
 
     input:
     val tif_files // nextflow creates links to the original files in a temporary folder

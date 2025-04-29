@@ -1,0 +1,1 @@
+https://github.com/nextflow-io/crg-course-nov16
