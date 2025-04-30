@@ -22,11 +22,12 @@ process process_file {
     val tif_files // nextflow creates links to the original files in a temporary folder
  
     output:
+    // path "*.txt"    // send output files to a new output channel (in this case is a collection)
     stdout
  
     script:
     """
-    echo "Ciao"
+    image_mean_with_numpy.py --file_paths "${tif_files[1]}"
     """ 
 }
 
