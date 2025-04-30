@@ -27,7 +27,6 @@ process process_file {
  
     script:
     """
-    chmod -R 750 ${projectDir}
     use_docker.py
     """ 
 }

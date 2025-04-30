@@ -25,7 +25,6 @@ process process_file {
  
     script:
     """
-    chmod -R 750 ${projectDir}
     process_list.py --file_paths "${tif_files[1]}"
     """ 
 }
