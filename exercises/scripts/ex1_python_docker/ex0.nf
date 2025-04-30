@@ -27,8 +27,10 @@ process process_file {
  
     script:
     """
-    image_mean_with_numpy.py --file_paths "${tif_files[1]}"
+    echo "Ciao"
     """ 
+    // image_mean_with_numpy.py --file_paths "${tif_files[1]}"
+    // """ 
 }
 
 // MAIN WORKFLOW
