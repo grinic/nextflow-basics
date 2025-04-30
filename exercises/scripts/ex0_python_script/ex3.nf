@@ -12,10 +12,6 @@ tif_files = channel.fromFilePairs("${params.tifs_dir}/*{Hoechst,FM4-64}*.tif", c
 
 // tif_files.view()
 
-/*
- * split a fasta file in multiple files
- */
- 
 process process_file {
 
     // conda params.condaEnvPath
@@ -29,7 +25,7 @@ process process_file {
  
     script:
     """
-    python ${projectDir}/bin/process_list.py --file_paths "${tif_files[1]}"
+    process_list.py --file_paths "${tif_files[1]}"
     """ 
 }
 

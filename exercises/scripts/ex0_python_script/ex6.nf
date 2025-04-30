@@ -12,10 +12,6 @@ tif_files = Channel.fromPath("${params.tifs_dir}/*.tif", checkIfExists:true)
 
 tif_files.view()
 
-/*
- * split a fasta file in multiple files
- */
- 
 process process_file {
 
     publishDir "${projectDir}/output_ex6", mode: 'copy'
@@ -29,7 +25,7 @@ process process_file {
  
     script:
     """
-    python ${projectDir}/bin/process_input_in_folders.py --file_path ${tif_files}
+    process_input_in_folders.py --file_path ${tif_files}
     """ 
 }
 

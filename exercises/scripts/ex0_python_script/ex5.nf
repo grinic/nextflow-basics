@@ -12,10 +12,6 @@ tif_files = channel.fromFilePairs("${params.tifs_dir}/*{${params.channels}}*.tif
 
 tif_files.collect().view()
 
-/*
- * split a fasta file in multiple files
- */
- 
 process extract_meta {
 
     conda params.condaEnvPath
@@ -29,7 +25,7 @@ process extract_meta {
  
     script:
     """
-    python ${projectDir}/bin/save_meta_as_pandas.py --tp "${tif_files[0]}" --file_paths "${tif_files[1]}" --channels "${params.channels}"
+    save_meta_as_pandas.py --tp "${tif_files[0]}" --file_paths "${tif_files[1]}" --channels "${params.channels}"
     """ 
 }
 

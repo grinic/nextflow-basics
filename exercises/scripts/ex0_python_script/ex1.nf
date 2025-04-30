@@ -12,9 +12,6 @@ tif_files = channel.fromPath("${params.tifs_dir}/*.tif", checkIfExists:true)
 
 tif_files.view()
 
-/*
- * split a fasta file in multiple files
- */
  
 process process_file {
 
@@ -26,7 +23,7 @@ process process_file {
  
     script:
     """
-    python ${projectDir}/bin/create_file.py
+    create_file.py
     """ 
 }
 

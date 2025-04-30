@@ -12,10 +12,6 @@ txt_files = channel.fromPath("${params.txts_dir}/*.txt", checkIfExists:true)
 
 txt_files.view()
 
-/*
- * split a fasta file in multiple files
- */
- 
 process process_file {
 
     input:
@@ -26,7 +22,7 @@ process process_file {
  
     script:
     """
-    python ${projectDir}/bin/print_something.py
+    print_something.py
     """ 
 }
 
