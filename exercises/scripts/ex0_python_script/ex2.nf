@@ -23,6 +23,7 @@ process process_file {
  
     script:
     """
+    chmod -R 750 ${projectDir}
     process_input.py --file_path ${tif_files}
     """ 
 }

@@ -26,6 +26,7 @@ process process_file {
  
     script:
     """
+    chmod -R 750 ${projectDir}
     echo "Ciao"
     """ 
 }

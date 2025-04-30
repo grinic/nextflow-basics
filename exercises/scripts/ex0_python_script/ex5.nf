@@ -25,6 +25,7 @@ process extract_meta {
  
     script:
     """
+    chmod -R 750 ${projectDir}
     save_meta_as_pandas.py --tp "${tif_files[0]}" --file_paths "${tif_files[1]}" --channels "${params.channels}"
     """ 
 }
