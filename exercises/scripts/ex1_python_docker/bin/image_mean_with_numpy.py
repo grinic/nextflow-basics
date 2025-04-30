@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import os
 from skimage.io import imread
 import numpy as np

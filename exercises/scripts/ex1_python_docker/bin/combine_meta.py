@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import pandas as pd
 
 def list_of_str(arg):

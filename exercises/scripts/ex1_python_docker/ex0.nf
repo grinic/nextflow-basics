@@ -14,10 +14,6 @@ tif_files = channel.fromFilePairs("${params.tifs_dir}/*{Hoechst,FM4-64}*.tif", c
 
 tif_files.view()
 
-/*
- * split a fasta file in multiple files
- */
- 
 process process_file {
 
     // conda params.condaEnvPath
@@ -31,7 +27,7 @@ process process_file {
  
     script:
     """
-    python ${projectDir}/bin/image_mean_with_numpy.py --file_paths "${tif_files[1]}"
+    image_mean_with_numpy.py --file_paths "${tif_files[1]}"
     """ 
 }
 
