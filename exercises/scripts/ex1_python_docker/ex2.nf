@@ -27,7 +27,7 @@ process process_file {
  
     script:
     """
-    use_docker.py
+    image_mean_with_numpy.py --file_paths "${tif_files[1]}"
     """ 
 }
 
