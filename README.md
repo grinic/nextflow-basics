@@ -13,4 +13,4 @@
 work/
 
 ## To run with params file:
-nextflow run ex0.nf -params-file parms.yaml
+`nextflow run ex0.nf -params-file params.yaml`

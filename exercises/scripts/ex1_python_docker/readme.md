@@ -13,5 +13,5 @@ This is useful to check if the Docker image is available from the dockerhub and 
 In this example, we try using the docker to run the process using `scikit-image` and `numpy`.
 We print out the mean of the image as stdout.
 
-!!! THIS FAILS because it can't find the images (No such file or directory error)...
+**!!! THIS FAILS because it can't find the images (No such file or directory error)...**
 

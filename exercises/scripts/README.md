@@ -10,5 +10,6 @@ Contains the basics: define a Channel from a list, string, Path or FilePair.
 
 A collection of nextflow scripts using basic python scripts.
 
+## ex1_python_docker
 
-
+A collection of nextflow pipelines using docker containers.
