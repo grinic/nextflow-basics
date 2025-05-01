@@ -17,16 +17,15 @@ process extract_meta {
     conda params.condaEnvPath
 
     input:
-    tuple val(sid), path(tif_files) // nextflow creates links to the original files in a temporary folder
+    val tif_files // nextflow creates links to the original files in a temporary folder
  
     output:
     path "*.csv"    // send output files to a new output channel (in this case is a collection)
     // stdout
  
     script:
-    def (f1, f2) = tif_files
     """
-    save_meta_as_pandas.py --tp "${sid}" --file_paths "${f1},${f2}" --channels "${params.channels}"
+    save_meta_as_pandas.py --tp "${tif_files[0]}" --file_paths "${tif_files[1]}" --channels "${params.channels}"
     """ 
 }
 
@@ -36,16 +35,14 @@ process combine_meta {
     conda params.condaEnvPath
 
     input:
-    path(csv_file_list)
+    val csv_files
 
     output:
-    // path "*.csv"
-    stdout
+    path "*.csv"
 
     script:
     """
-    echo ${csv_file_list}
-    combine_meta.py --file_paths "${csv_file_list}"
+    python ${projectDir}/bin/combine_meta.py --file_paths "${csv_files}"
     """
 }
 
