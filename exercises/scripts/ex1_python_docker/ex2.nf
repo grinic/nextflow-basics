@@ -16,7 +16,7 @@ tif_files.view()
 
 process process_file {
 
-    containerOptions { "-v ${params.tifs_dir}:${params.tifs_dir} -u 24080:24080" }
+    containerOptions { "-u 24080:24080 -v ${params.tifs_dir}:${params.tifs_dir}" }
     // containerOptions { workflow.containerEngine == "docker" ? '-u $(id -u):$(id -g)': null}
 
     input:
