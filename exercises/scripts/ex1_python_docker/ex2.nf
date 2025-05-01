@@ -20,7 +20,7 @@ process process_file {
     // containerOptions { workflow.containerEngine == "docker" ? '-u $(id -u):$(id -g)': null}
 
     input:
-    path tif_files // nextflow creates links to the original files in a temporary folder
+    file files from tif_files // nextflow creates links to the original files in a temporary folder
  
     output:
     // path "*.txt"    // send output files to a new output channel (in this case is a collection)
@@ -28,7 +28,7 @@ process process_file {
  
     script:
     """
-    echo ${tif_files}
+    echo ${files}
     """
     // image_mean_with_numpy.py --file_paths "${tif_files[1]}"
     // """ 
