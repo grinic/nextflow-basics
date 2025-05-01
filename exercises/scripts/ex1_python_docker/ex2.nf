@@ -16,6 +16,8 @@ tif_files.view()
 
 process process_file {
 
+    containerOptions '-v /home:/home'
+
     input:
     val tif_files // nextflow creates links to the original files in a temporary folder
  
