@@ -39,10 +39,12 @@ process combine_meta {
     path(csv_file_list)
 
     output:
-    path "*.csv"
+    // path "*.csv"
+    stdout
 
     script:
     """
+    echo ${csv_file_list}
     combine_meta.py --file_paths "${csv_file_list}"
     """
 }
