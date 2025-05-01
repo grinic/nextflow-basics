@@ -16,7 +16,7 @@ tif_files.view()
 
 process process_file {
 
-   containerOptions { "-v ${params.tifs_dir}:${params.tifs_dir} -u $(id -u):$(id -g)" }
+   containerOptions "-v ${params.tifs_dir}:${params.tifs_dir} -u $(id -u):$(id -g)"
 
     input:
     val tif_files // nextflow creates links to the original files in a temporary folder
