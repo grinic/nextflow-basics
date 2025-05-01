@@ -10,18 +10,16 @@
 // in the command line
 
 // create a channel with one path and check the existence of that file
-tif_pairs = channel.fromFilePairs("${params.tifs_dir}/*{Hoechst,FM4-64}*.tif", checkIfExists:true)	
+tif_files = channel.fromFilePairs("${params.tifs_dir}/*{Hoechst,FM4-64}*.tif", checkIfExists:true)	
 
-tif_pairs.view()
+tif_files.view()
 
 process process_file {
 
-    containerOptions { "-u $(id -u):$(id -g) -v ${params.tifs_dir}:${params.tifs_dir}" }
-    // containerOptions { workflow.containerEngine == "docker" ? '-u $(id -u):$(id -g)': null}
+   containerOptions { "-v ${params.tifs_dir}:${params.tifs_dir} -u $(id -u):$(id -g)" }
 
     input:
-    val tif_files
-    // file files from tif_files // nextflow creates links to the original files in a temporary folder
+    val tif_files // nextflow creates links to the original files in a temporary folder
  
     output:
     // path "*.txt"    // send output files to a new output channel (in this case is a collection)
@@ -37,7 +35,7 @@ process process_file {
 // MAIN WORKFLOW
 
 workflow {
-    output	= process_file(tif_pairs)
+    output	= process_file(tif_files)
     
     // Here you have the output channel as a collection
     output.view()
