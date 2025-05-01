@@ -17,7 +17,7 @@ process process_file {
     // conda params.condaEnvPath
 
     input:
-    path tif_files // nextflow creates links to the original files in a temporary folder
+    tuple val(sid), path(tif_files) // nextflow creates links to the original files in a temporary folder
  
     output:
     path "*.txt"    // send output files to a new output channel (in this case is a collection)
@@ -25,7 +25,7 @@ process process_file {
  
     script:
     """
-    process_list.py --file_paths "${tif_files[1]}"
+    process_list.py --file_paths "${tif_files}"
     """ 
 }
 
