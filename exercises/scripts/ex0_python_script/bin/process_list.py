@@ -36,6 +36,6 @@ if __name__=="__main__":
     args = parser.parse_args()
 
     file_paths = args.file_paths
-    # print(file_paths)
+    print(file_paths)
 
     create_file_id(file_paths)
