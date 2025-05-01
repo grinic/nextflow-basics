@@ -24,8 +24,9 @@ process process_file {
     stdout
  
     script:
+    def (f1, f2) = tif_files
     """
-    process_list.py --file_paths "${tif_files}"
+    process_list.py --file_paths "${f1},${f2}"
     """ 
 }
 
