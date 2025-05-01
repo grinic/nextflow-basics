@@ -16,7 +16,7 @@ tif_pairs.view()
 
 process process_file {
 
-    containerOptions { "-u 24080:133 -v ${params.tifs_dir}:${params.tifs_dir}" }
+    containerOptions { "-u $(id -u):$(id -g) -v ${params.tifs_dir}:${params.tifs_dir}" }
     // containerOptions { workflow.containerEngine == "docker" ? '-u $(id -u):$(id -g)': null}
 
     input:
@@ -29,10 +29,9 @@ process process_file {
  
     script:
     """
-    echo ${tif_files}
-    """
-    // image_mean_with_numpy.py --file_paths "${tif_files[1]}"
-    // """ 
+    echo id
+    image_mean_with_numpy.py --file_paths "${tif_files[1]}"
+    """ 
 }
 
 // MAIN WORKFLOW
