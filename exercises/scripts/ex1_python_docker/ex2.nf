@@ -16,7 +16,8 @@ tif_files.view()
 
 process process_file {
 
-   containerOptions { "-v ${params.tifs_dir}:${params.tifs_dir} " }
+    containerOptions { "-v ${params.tifs_dir}:${params.tifs_dir} " }
+    containerOptions { workflow.containerEngine == "docker" ? '-u $(id -u):$(id -g)': null}
 
     input:
     val tif_files // nextflow creates links to the original files in a temporary folder
