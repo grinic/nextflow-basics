@@ -16,11 +16,11 @@ tif_pairs.view()
 
 process process_file {
 
-    // containerOptions { "-u 24080:24080 -v ${params.tifs_dir}:${params.tifs_dir}" }
+    containerOptions { "-u 24080:133 -v ${params.tifs_dir}:${params.tifs_dir}" }
     // containerOptions { workflow.containerEngine == "docker" ? '-u $(id -u):$(id -g)': null}
 
     input:
-    tuple val(id), path(tif_files)
+    val tif_files
     // file files from tif_files // nextflow creates links to the original files in a temporary folder
  
     output:
