@@ -10,9 +10,9 @@
 // in the command line
 
 // create a channel with one path and check the existence of that file
-tif_files = channel.fromFilePairs("${params.tifs_dir}/*{Hoechst,FM4-64}*.tif", checkIfExists:true)	
+tif_pairs = channel.fromFilePairs("${params.tifs_dir}/*{Hoechst,FM4-64}*.tif", checkIfExists:true)	
 
-tif_files.view()
+tif_pairs.view()
 
 process process_file {
 
@@ -20,7 +20,7 @@ process process_file {
     // containerOptions { workflow.containerEngine == "docker" ? '-u $(id -u):$(id -g)': null}
 
     input:
-    tuple path(tif_file)
+    val tif_files
     // file files from tif_files // nextflow creates links to the original files in a temporary folder
  
     output:
@@ -29,7 +29,7 @@ process process_file {
  
     script:
     """
-    echo ${tif_file}
+    echo ${tif_files}
     """
     // image_mean_with_numpy.py --file_paths "${tif_files[1]}"
     // """ 
@@ -38,7 +38,7 @@ process process_file {
 // MAIN WORKFLOW
 
 workflow {
-    output	= process_file(tif_files)
+    output	= process_file(tif_pairs)
     
     // Here you have the output channel as a collection
     output.view()
