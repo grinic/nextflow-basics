@@ -20,7 +20,7 @@ process process_file {
     // containerOptions { workflow.containerEngine == "docker" ? '-u $(id -u):$(id -g)': null}
 
     input:
-    tuple path(tif_files)
+    tuple path(tif_file)
     // file files from tif_files // nextflow creates links to the original files in a temporary folder
  
     output:
@@ -29,7 +29,7 @@ process process_file {
  
     script:
     """
-    echo ${tif_files}
+    echo ${tif_file}
     """
     // image_mean_with_numpy.py --file_paths "${tif_files[1]}"
     // """ 
