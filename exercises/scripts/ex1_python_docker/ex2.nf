@@ -16,7 +16,7 @@ tif_files.view()
 
 process process_file {
 
-    containerOptions '-v /home:/home'
+    containerOptions '-v $(params.tifs_dir):$(params.tifs_dir) -u gritti'
 
     input:
     val tif_files // nextflow creates links to the original files in a temporary folder
