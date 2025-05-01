@@ -20,7 +20,7 @@ process process_file {
     // containerOptions { workflow.containerEngine == "docker" ? '-u $(id -u):$(id -g)': null}
 
     input:
-    tuple val(id) path(tif_files)
+    tuple val(id), path(tif_files)
     // file files from tif_files // nextflow creates links to the original files in a temporary folder
  
     output:
