@@ -15,7 +15,7 @@ tif_files.view()
 process process_file {
 
     input:
-    tuple val(sid), path(tif_file) // nextflow creates links to the original files in a temporary folder
+    path(tif_file) // nextflow creates links to the original files in a temporary folder
  
     output:
     path "*.txt"    // send output files to a new output channel (in this case is a collection)
