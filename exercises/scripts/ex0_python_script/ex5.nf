@@ -36,7 +36,7 @@ process combine_meta {
     conda params.condaEnvPath
 
     input:
-    tuple path(csv_files)
+    path(csv_files)
 
     output:
     path "*.csv"
