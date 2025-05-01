@@ -16,8 +16,6 @@ tif_files.view()
 
 process process_file {
 
-    // conda params.condaEnvPath
-
     input:
     val tif_files // nextflow creates links to the original files in a temporary folder
  
