@@ -34,6 +34,7 @@ if __name__=="__main__":
                         type=list_of_str)
 
     args = parser.parse_args()
+    print(args.file_paths)
 
     file_paths = args.file_paths
     print(file_paths)

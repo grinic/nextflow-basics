@@ -8,7 +8,7 @@
 // in the command line
 
 // create a channel with one path and check the existence of that file
-tif_pairs = channel.fromFilePairs("${params.tifs_dir}/*{Hoechst,FM4-64}*.tif", checkIfExists:true)	
+tif_pairs = Channel.fromFilePairs("$params.tifs_dir/*{Hoechst,FM4-64}*.tif", checkIfExists:true)	
 
 tif_pairs.view()
 
