@@ -30,7 +30,10 @@ process process_file {
     // stdout
  
     script:
+    def tif_tuple = tif_files.collect()
     // echo "$tp_id : $tif_files"
+    // LAST THING I DID: tried removing {} from tif_files
+    // next: try mapping tif files to tuple
     """
     process_list.py --file_paths "$tif_files"
     """ 
