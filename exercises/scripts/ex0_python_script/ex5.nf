@@ -35,7 +35,7 @@ process extract_meta {
 process combine_meta {
     publishDir "${projectDir}/output_ex5", mode: 'copy'
 
-    conda params.condaEnvPath
+    // conda params.condaEnvPath
 
     input:
     path (csv_files)
@@ -44,8 +44,9 @@ process combine_meta {
     path "*.csv"
 
     script:
+    def csv_tuple = csv_files.collect()
     """
-    python ${projectDir}/bin/combine_meta.py --file_paths "${csv_files}"
+    python ${projectDir}/bin/combine_meta.py --file_paths "${csv_tuple}"
     """
 }
 
