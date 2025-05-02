@@ -7,21 +7,24 @@
 // inputfile is a pipeline parameter that can be overridden by using --inputfile OTHERFILENAME
 // in the command line
 
-// create a channel with one path and check the existence of that file
-tif_files = Channel.fromPath("${params.tifs_dir}/*.tif", checkIfExists:true)	
+nextflow.enable.dsl = 2
 
-tif_files.view()
+// create a channel with one path and check the existence of that file
+tif_pairs = Channel.fromPath("${params.tifs_dir}/*.tif", checkIfExists:true)	
+
+tif_pairs.view()
 
 process process_file {
+    tag "${file_id}"
 
-    publishDir "${projectDir}/output_ex6", mode: 'copy'
+    publishDir "${projectDir}/output_ex6/${file_id}", mode: 'copy'
 
     input:
-    val tif_files // nextflow creates links to the original files in a temporary folder
+    path (tif_files) // nextflow creates links to the original files in a temporary folder
  
     output:
-    path "*/*.txt"    // send output files to a new output channel (in this case is a collection)
-    // stdout
+    // path "*.txt"    // send output files to a new output channel (in this case is a collection)
+    stdout
  
     script:
     """
@@ -33,7 +36,7 @@ process process_file {
 // MAIN WORKFLOW
 
 workflow {
-    output	= process_file(tif_files)
+    output	= process_file(tif_pairs)
     
     // Here you have the output channel as a collection
     output.view()

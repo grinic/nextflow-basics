@@ -16,7 +16,7 @@ def create_file_id(file_path):
     
     for file_path in file_paths:
         
-        # print(file_path)
+        print(file_path)
     
         _file = os.path.basename(file_path)
         filename, _ = os.path.splitext(_file)
@@ -34,7 +34,6 @@ if __name__=="__main__":
                         type=list_of_str)
 
     args = parser.parse_args()
-    # print(args.file_paths)
 
     file_paths = args.file_paths
     # print(file_paths)

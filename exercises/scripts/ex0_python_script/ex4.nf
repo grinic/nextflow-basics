@@ -7,8 +7,10 @@
 // inputfile is a pipeline parameter that can be overridden by using --inputfile OTHERFILENAME
 // in the command line
 
+nextflow.enable.dsl = 2
+
 // create a channel with one path and check the existence of that file
-tif_files = channel.fromFilePairs("${params.tifs_dir}/*{Hoechst,FM4-64}*.tif", checkIfExists:true)	
+tif_pairs = channel.fromFilePairs("${params.tifs_dir}/*{Hoechst,FM4-64}*.tif", checkIfExists:true)	
 
 tif_files.view()
 
@@ -17,23 +19,22 @@ process process_file {
     conda params.condaEnvPath
 
     input:
-    tuple val(sid), path(tif_files) // nextflow creates links to the original files in a temporary folder
+    tuple val (tp_id), path (tif_files) // nextflow creates links to the original files in a temporary folder
  
     output:
     // path "*.txt"    // send output files to a new output channel (in this case is a collection)
     stdout
  
     script:
-    def (f1, f2) = tif_files
     """
-    image_mean_with_numpy.py --file_paths "${f1},${f2}"
+    image_mean_with_numpy.py --file_paths "${tif_files}"
     """ 
 }
 
 // MAIN WORKFLOW
 
 workflow {
-    output	= process_file(tif_files)
+    output	= process_file(tif_pairs)
     
     // Here you have the output channel as a collection
     output.view()

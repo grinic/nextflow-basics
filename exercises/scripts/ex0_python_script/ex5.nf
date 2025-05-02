@@ -7,17 +7,19 @@
 // inputfile is a pipeline parameter that can be overridden by using --inputfile OTHERFILENAME
 // in the command line
 
-// create a channel with one path and check the existence of that file
-tif_files = channel.fromFilePairs("${params.tifs_dir}/*{${params.channels}}*.tif", checkIfExists:true)	
+nextflow.enable.dsl = 2
 
-tif_files.collect().view()
+// create a channel with one path and check the existence of that file
+tif_pairs = channel.fromFilePairs("${params.tifs_dir}/*{${params.channels}}*.tif", checkIfExists:true)	
+
+tif_pairs.collect().view()
 
 process extract_meta {
 
     conda params.condaEnvPath
 
     input:
-    val tif_files // nextflow creates links to the original files in a temporary folder
+    tuple val (tp_id), path (tif_files) // nextflow creates links to the original files in a temporary folder
  
     output:
     path "*.csv"    // send output files to a new output channel (in this case is a collection)
@@ -25,7 +27,7 @@ process extract_meta {
  
     script:
     """
-    save_meta_as_pandas.py --tp "${tif_files[0]}" --file_paths "${tif_files[1]}" --channels "${params.channels}"
+    save_meta_as_pandas.py --tp "${tp_id}" --file_paths "${tif_files}" --channels "${params.channels}"
     """ 
 }
 
@@ -35,7 +37,7 @@ process combine_meta {
     conda params.condaEnvPath
 
     input:
-    val csv_files
+    path (csv_files)
 
     output:
     path "*.csv"
@@ -50,7 +52,7 @@ process combine_meta {
 
 workflow {
 
-    csv_files	= extract_meta(tif_files)
+    csv_files	= extract_meta(tif_pairs)
     // Here you have the output channel as a collection
     csv_files.collect().view()
 
