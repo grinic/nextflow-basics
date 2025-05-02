@@ -28,7 +28,7 @@ process extract_meta {
     script:
     def tif_tuple = tif_files.collect()
     """
-    save_meta_as_pandas.py --tp "${tp_id}" --file_paths "${tif_files}" --channels "${params.channels}"
+    save_meta_as_pandas.py --tp "${tp_id}" --file_paths "${tif_tuple}" --channels "${params.channels}"
     """ 
 }
 
