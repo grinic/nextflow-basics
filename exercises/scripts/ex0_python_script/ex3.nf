@@ -13,7 +13,7 @@ nextflow.enable.dsl = 2
 tif_pairs = channel.fromFilePairs(
                     "${params.tifs_dir}/*{Hoechst,FM4-64}*.tif", 
                     checkIfExists:true,
-                    flat:true
+                    // flat:true
 )	
 
 // tif_files.view()
