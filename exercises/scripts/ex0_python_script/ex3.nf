@@ -35,7 +35,7 @@ process process_file {
     // LAST THING I DID: tried removing {} from tif_files
     // next: try mapping tif files to tuple
     """
-    process_list.py --file_paths "$tif_files"
+    process_list.py --file_paths "$tif_tuple"
     """ 
 }
 
