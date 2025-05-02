@@ -26,15 +26,14 @@ process process_file {
     tuple val (tp_id), path (tif_files) // nextflow creates links to the original files in a temporary folder
  
     output:
-    // path "*.txt"    // send output files to a new output channel (in this case is a collection)
-    stdout
+    path "*.txt"    // send output files to a new output channel (in this case is a collection)
+    // stdout
  
     script:
     """
-    echo "$tp_id : $tif_files"
-    """
-    // process_list.py --file_paths "${tif_files}"
-    // """ 
+    // echo "$tp_id : $tif_files"
+    process_list.py --file_paths "$tif_files"
+    """ 
 }
 
 
