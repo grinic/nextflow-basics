@@ -16,14 +16,14 @@ tif_pairs = channel.fromFilePairs(
                     // flat:true
 )	
 
-// tif_files.view()
+tif_files.view()
 
 process process_file {
 
     // conda params.condaEnvPath
 
     input:
-    tuple val (tp_id), path (tif_files) // nextflow creates links to the original files in a temporary folder
+    tuple val (tp_id), file (tif_files) // nextflow creates links to the original files in a temporary folder
  
     output:
     path "*.txt"    // send output files to a new output channel (in this case is a collection)
