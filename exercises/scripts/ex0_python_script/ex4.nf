@@ -12,7 +12,7 @@ nextflow.enable.dsl = 2
 // create a channel with one path and check the existence of that file
 tif_pairs = channel.fromFilePairs("${params.tifs_dir}/*{Hoechst,FM4-64}*.tif", checkIfExists:true)	
 
-tif_files.view()
+tif_pairs.view()
 
 process process_file {
 
