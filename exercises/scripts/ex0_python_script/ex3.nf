@@ -31,7 +31,7 @@ process process_file {
  
     script:
     """
-    exho "$tp_id : $tif_files"
+    echo "$tp_id : $tif_files"
     // process_list.py --file_paths "${tif_files}"
     """ 
 }
