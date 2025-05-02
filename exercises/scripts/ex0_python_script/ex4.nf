@@ -26,8 +26,9 @@ process process_file {
     stdout
  
     script:
+    def tif_tuple = tif_files.collect()
     """
-    image_mean_with_numpy.py --file_paths "${tif_files}"
+    image_mean_with_numpy.py --file_paths "$tif_files"
     """ 
 }
 
