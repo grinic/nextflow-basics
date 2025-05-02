@@ -27,14 +27,14 @@ process process_file {
  
     output:
     path "*.txt"    // send output files to a new output channel (in this case is a collection)
-    // stdout
+    stdout
  
     script:
     def tif_tuple = tif_files.collect()
-    // echo "$tp_id : $tif_files"
     // LAST THING I DID: tried removing {} from tif_files
     // next: try mapping tif files to tuple
     """
+    echo "$tp_id : $tif_tuple"
     process_list.py --file_paths "$tif_tuple"
     """ 
 }
