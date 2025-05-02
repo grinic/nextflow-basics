@@ -10,9 +10,9 @@
 nextflow.enable.dsl = 2
 
 // create a channel with one path and check the existence of that file
-tif_pairs = Channel.fromPath("${params.tifs_dir}/*.tif", checkIfExists:true)	
+tif_files = Channel.fromPath("${params.tifs_dir}/*.tif", checkIfExists:true)	
 
-tif_pairs.view()
+tif_files.view()
 
 process process_file {
     tag "${file_id}"
@@ -20,15 +20,15 @@ process process_file {
     publishDir "${projectDir}/output_ex6/${file_id}", mode: 'copy'
 
     input:
-    path (tif_files) // nextflow creates links to the original files in a temporary folder
+    path (tif_file) // nextflow creates links to the original files in a temporary folder
  
     output:
-    // path "*.txt"    // send output files to a new output channel (in this case is a collection)
-    stdout
+    path "*.txt"    // send output files to a new output channel (in this case is a collection)
+    // stdout
  
     script:
     """
-    process_input_in_folders.py --file_path ${tif_files}
+    process_input_in_folders.py --file_path ${tif_file}
     """ 
 }
 
@@ -36,7 +36,7 @@ process process_file {
 // MAIN WORKFLOW
 
 workflow {
-    output	= process_file(tif_pairs)
+    output	= process_file(tif_files)
     
     // Here you have the output channel as a collection
     output.view()

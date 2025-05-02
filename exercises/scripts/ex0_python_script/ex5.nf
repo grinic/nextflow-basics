@@ -16,7 +16,7 @@ tif_pairs.collect().view()
 
 process extract_meta {
 
-    // conda params.condaEnvPath
+    conda params.condaEnvPath
 
     input:
     tuple val (tp_id), path (tif_files) // nextflow creates links to the original files in a temporary folder
@@ -35,7 +35,7 @@ process extract_meta {
 process combine_meta {
     publishDir "${projectDir}/output_ex5", mode: 'copy'
 
-    // conda params.condaEnvPath
+    conda params.condaEnvPath
 
     input:
     path (csv_files)
