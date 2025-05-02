@@ -10,20 +10,21 @@
 // in the command line
 
 // create a channel with one path and check the existence of that file
-tif_files = channel.fromFilePairs("${params.tifs_dir}/*{Hoechst,FM4-64}*.tif", checkIfExists:true)	
+tif_pairs = channel.fromFilePairs("${params.tifs_dir}/*{Hoechst,FM4-64}*.tif", checkIfExists:true)	
 
-tif_files.view()
+tif_pairs.view()
 
 process process_file {
 
     input:
-    val tif_files // nextflow creates links to the original files in a temporary folder
+    tuple val (tp_id), path (tif_files) // nextflow creates links to the original files in a temporary folder
  
     output:
     // path "*.txt"    // send output files to a new output channel (in this case is a collection)
     stdout
  
     script:
+    def tif_tuple = tif_files.collect()
     """
     use_docker.py
     """ 
@@ -32,7 +33,7 @@ process process_file {
 // MAIN WORKFLOW
 
 workflow {
-    output	= process_file(tif_files)
+    output	= process_file(tif_pairs)
     
     // Here you have the output channel as a collection
     output.view()
