@@ -16,7 +16,7 @@ tif_pairs = channel.fromFilePairs(
                     // flat:true
 )	
 
-tif_files.view()
+tif_pairs.view()
 
 process process_file {
 
