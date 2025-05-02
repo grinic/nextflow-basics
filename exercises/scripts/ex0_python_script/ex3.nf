@@ -30,8 +30,8 @@ process process_file {
     // stdout
  
     script:
-    """
     // echo "$tp_id : $tif_files"
+    """
     process_list.py --file_paths "$tif_files"
     """ 
 }
