@@ -32,8 +32,9 @@ process process_file {
     script:
     """
     echo "$tp_id : $tif_files"
+    """
     // process_list.py --file_paths "${tif_files}"
-    """ 
+    // """ 
 }
 
 
