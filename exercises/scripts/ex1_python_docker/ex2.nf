@@ -27,7 +27,6 @@ process process_file {
  
     script:
     """
-    id
     image_mean_with_numpy.py --file_paths "${tif_files[1]}"
     """ 
 }
