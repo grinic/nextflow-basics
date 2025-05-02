@@ -15,9 +15,8 @@ tif_files = Channel.fromPath("${params.tifs_dir}/*.tif", checkIfExists:true)
 tif_files.view()
 
 process process_file {
-    tag "${file_id}"
 
-    publishDir "${projectDir}/output_ex6/${file_id}", mode: 'copy'
+    publishDir "${projectDir}/output_ex6/", mode: 'copy'
 
     input:
     path (tif_file) // nextflow creates links to the original files in a temporary folder
