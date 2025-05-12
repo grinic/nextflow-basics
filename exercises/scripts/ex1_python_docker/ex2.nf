@@ -16,7 +16,7 @@ tif_pairs.view()
 
 process process_file {
 
-    containerOptions "-v ${params.tifs_dir}:${params.tifs_dir} -u \$(id -u):\$(id -g)"
+    // containerOptions "-v ${params.tifs_dir}:${params.tifs_dir}"
     //conda params.condaEnvPath
 
     input:
