@@ -1,7 +1,7 @@
 /* 
  * HERE YOU HAVE THE COMMMENTS
  * NextFlow example from their website 
- * nextflow run ex0.nf -params_file params.yaml -with-docker
+ * nextflow run ex0.nf -params_file params.yaml -with-singularity
  * https://github.com/nextflow-io/crg-course-nov16
  */
  
