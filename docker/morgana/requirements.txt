@@ -1,0 +1,13 @@
+tensorflow==2.17
+matplotlib==3.9.2
+numpy==1.26.4
+pyqt5==5.15.11
+scikit-image==0.24.0
+pandas==2.2.3
+joblib==1.4.2
+scikit-learn==1.5.2
+scipy==1.13.1
+tqdm==4.60
+openpyxl==3.1.5
+h5py==3.11.0
+
