@@ -3,6 +3,7 @@ For a quickstart on how to create a docker container, see:
 https://github.com/nextflow-io/crg-course-nov16
 
 Briefly:
+- Install Docker Desktop
 - Create a Dockerfile
 - Build the image: `docker build -t <my-image> .`
 - Login into dockerhub account: `docker login`
@@ -13,7 +14,7 @@ To run a bash shell within docker image: `docker run -it <my-image> bash`
 
 To run a software within the container: `docker run <my-image> <software> --version`
 
-## Run Docker with GUI app
+# Run Docker with GUI app
 
 ### Linux
 
@@ -25,7 +26,7 @@ GUI apps are easier to run in Docker containers on Linux because:
 
 - No extra software or configuration is needed on the host — it's just Unix socket sharing + DISPLAY env var.
 
-1. Prerequisites
+1. **Prerequisites**
 
 You must have X11 installed (standard on most Linux desktops).
 
@@ -35,7 +36,7 @@ Allow X11 connections from Docker:
 xhost +local:docker
 ```
 
-2. Run the Docker container
+2. **Run the Docker container**
 
 Assuming the container runs a GUI app (e.g., PyQt5), start it like this:
 
@@ -54,7 +55,7 @@ Where `<LOCAL_PATH_OF_INTEREST>` is the path to documents/images on the local dr
 
 The volume mount shares the X socket.
 
-3. Security tip: Afterward, revoke access with:
+3. **Security tip: Afterward, revoke access with:**
 
 ```
 xhost -local:docker
@@ -73,7 +74,7 @@ Docker Desktop runs containers in a Linux virtual machine, and GUI apps inside t
 Therefore, to run Linux GUI apps in Windows via Docker Desktop, you need to siulate an X server using external software such as **VcXsrv**.
 
 
-1. Install an X Server on Windows
+1. **Install an X Server on Windows**
 
 You need VcXsrv (free) or X410 (paid) to receive the GUI output.
 
@@ -88,7 +89,7 @@ Launch `XLaunch` with:
 
 - Disable access control (or configure IP access manually)
 
-2. Find Your Host IP Address
+2. **Find Your Host IP Address**
 
 Open PowerShell or CMD, run:
 
@@ -96,7 +97,7 @@ Open PowerShell or CMD, run:
 
 Look under your main adapter (Wi-Fi or Ethernet) and note the IPv4 address — e.g. 192.168.1.123
 
-3. Run the Docker Container with DISPLAY Set
+3. **Run the Docker Container with DISPLAY Set**
 
 ```
 docker run -it \
