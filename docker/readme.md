@@ -10,7 +10,103 @@ Briefly:
 - Push the image to dockerhub: `docker push <user-name>/<my-image>`
 
 To run a bash shell within docker image: `docker run -it <my-image> bash`
+
 To run a software within the container: `docker run <my-image> <software> --version`
+
+## Run Docker with GUI app
+
+### Linux
+
+GUI apps are easier to run in Docker containers on Linux because:
+
+- X11 is the standard windowing system for GUI on Linux.
+
+- Docker containers can reuse the host’s X11 server with a simple -v /tmp/.X11-unix:/tmp/.X11-unix volume mount.
+
+- No extra software or configuration is needed on the host — it's just Unix socket sharing + DISPLAY env var.
+
+1. Prerequisites
+
+You must have X11 installed (standard on most Linux desktops).
+
+Allow X11 connections from Docker:
+
+```
+xhost +local:docker
+```
+
+2. Run the Docker container
+
+Assuming the container runs a GUI app (e.g., PyQt5), start it like this:
+
+```
+docker run -it \
+  --rm \
+  -e DISPLAY=$DISPLAY \
+  -v /tmp/.X11-unix:/tmp/.X11-unix \
+  -v "<LOCAL_PATH_OF_INTEREST>:/g/documents" \
+  your-image-name
+```
+
+Where `<LOCAL_PATH_OF_INTEREST>` is the path to documents/images on the local drive or the server (e.g. in **MOrgAna**).
+
+`DISPLAY=$DISPLAY` forwards GUI to your local X session.
+
+The volume mount shares the X socket.
+
+3. Security tip: Afterward, revoke access with:
+
+```
+xhost -local:docker
+```
+
+### Windows (Docker Desktop + X server)
+
+Docker Desktop runs containers in a Linux virtual machine, and GUI apps inside the container use X11 (a Linux windowing system) to display windows. But:
+
+- Windows does not support X11 natively.
+
+- There’s no built-in X server in Windows CMD or PowerShell.
+
+- Docker Desktop doesn’t emulate a GUI layer for containers.
+
+Therefore, to run Linux GUI apps in Windows via Docker Desktop, you need to siulate an X server using external software such as **VcXsrv**.
+
+
+1. Install an X Server on Windows
+
+You need VcXsrv (free) or X410 (paid) to receive the GUI output.
+
+Option A: VcXsrv (recommended)
+Install from: https://sourceforge.net/projects/vcxsrv/
+
+Launch `XLaunch` with:
+
+- Multiple windows
+
+- Start no client
+
+- Disable access control (or configure IP access manually)
+
+2. Find Your Host IP Address
+
+Open PowerShell or CMD, run:
+
+`ipconfig`
+
+Look under your main adapter (Wi-Fi or Ethernet) and note the IPv4 address — e.g. 192.168.1.123
+
+3. Run the Docker Container with DISPLAY Set
+
+```
+docker run -it \
+  --rm \
+  -e DISPLAY=<HOST_IP>>:0.0 \
+  -v "<LOCAL_PATH_OF_INTEREST>:/g/documents"
+  your-image-name
+```
+
+Where `<LOCAL_PATH_OF_INTEREST>` is the path to documents/images on the local drive or the server (e.g. in **MOrgAna**).
 
 # Installation notes
 
