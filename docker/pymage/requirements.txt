@@ -36,3 +36,4 @@ tifffile
 tqdm==4.67.0
 xarray
 zarr
+xlsxwriter
