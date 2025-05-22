@@ -89,7 +89,6 @@ Launch `XLaunch` with:
 
 - Disable access control (or configure IP access manually)
 
-
 2. **Run the Docker Container with DISPLAY Set**
 
 ```
