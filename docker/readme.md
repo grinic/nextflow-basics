@@ -89,20 +89,13 @@ Launch `XLaunch` with:
 
 - Disable access control (or configure IP access manually)
 
-2. **Find Your Host IP Address**
 
-Open PowerShell or CMD, run:
-
-`ipconfig`
-
-Look under your main adapter (Wi-Fi or Ethernet) and note the IPv4 address — e.g. 192.168.1.123
-
-3. **Run the Docker Container with DISPLAY Set**
+2. **Run the Docker Container with DISPLAY Set**
 
 ```
 docker run -it \
   --rm \
-  -e DISPLAY=<HOST_IP>>:0.0 \
+  -e DISPLAY=host.docker.internal:0 \
   -v "<LOCAL_PATH_OF_INTEREST>:/g/documents"
   your-image-name
 ```
